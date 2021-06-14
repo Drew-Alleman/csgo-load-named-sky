@@ -10,7 +10,7 @@ Quick Tutorial on how to call the function loadNamedSky() in csgo.
 7. Call With Arguments
 
 # Step 1
-Open Path\to\csgo\bin\engine.dll in Ida
+Open \Path_to_csgo\bin\engine.dll in Ida
 
 # Step 2 
 Search for: 'skybox' <br>
