@@ -3,7 +3,7 @@ Quick Tutorial on how to call the function loadNamedSky() in csgo.
 
 # Steps 
 1. Open Ida
-2. Search Strings for: 'skybox'
+2. Search Strings for: "skybox"
 3. Find Function
 4. Get Memory Location of Function
 5. Define Function in C++ File
@@ -32,11 +32,11 @@ bool loadNamedSky(const char* skyname) {
   uintptr_t engine = (uintptr_t)GetModuleHandle(L"engine.dll"); //Get Engine Handle
   if (engine == NULL || skyname == NULL) { return false; } // NULL Check
   const tLoadNamedSky loadNamedSky = (tLoadNamedSky)(engine + 0x12f4d0); 
-  if (loadNamedSky == NULL) { return false; }
-        loadNamedSky(skyname);
+  if (loadNamedSky == NULL) { return false; } // NULL Check
+        loadNamedSky(skyname); //Load Sky
         return true;
  }
  int main() {
-    loadNamedSky("vietnam");
+    loadNamedSky("vietnam"); //Load sky vietnam
  }
 ```
