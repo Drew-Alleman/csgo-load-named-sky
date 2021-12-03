@@ -26,14 +26,15 @@ Get Memory Location of Function <br>
 
 # Source Code
 ```C++
-using tLoadNamedSky = void(__fastcall*)(const char*); // Create templete
+using tLoadNamedSky = void(__fastcall*)(const char*); // Create templete of SUB_100AC480 
 
 bool loadNamedSky(const char* skyname) {
   uintptr_t engine = (uintptr_t)GetModuleHandle(L"engine.dll"); //Get Engine Handle
   if (engine == NULL || skyname == NULL) { return false; } // NULL Check
-  const tLoadNamedSky loadNamedSky = (tLoadNamedSky)(engine + 0x12f4d0); 
+  // engine + 0x12f4d0 is the memory location of the function SUB_100AC480
+  const tLoadNamedSky loadNamedSky = (tLoadNamedSky)(engine + 0x12f4d0); // Create function loadNamedSky
   if (loadNamedSky == NULL) { return false; } // NULL Check
-        loadNamedSky(skyname); //Load Sky
+        loadNamedSky(skyname); // Call the function 
         return true;
  }
  int main() {
